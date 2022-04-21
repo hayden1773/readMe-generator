@@ -49,17 +49,17 @@ inquirer
         },
         {
             type: "input",
-            name: "##Credits",
+            name: "credits",
             message: "Provide a list of collaborators including yourself",
         },
         {
             type: "input",
-            name: "Third-party assets",
+            name: "thirdPartyAssets",
             message: "Compile a list of detailed third party assets you used for your project",
         },
         {
             type: "checkbox",
-            name: "License",
+            name: "license",
             message: "Add a license to your readme to let other know what they can and cannot do with your project ",
             choices: ['APM','AUR','BOWER','COCOAPODS','CONDA','CPAN','CRAN','CRATES','CTAN','DUB','ECLIPSE','GITHUB','HEX','NPM','ORE','PACKAGIST','PYPI','REUSE','WEBLATE'],
         },
@@ -84,6 +84,57 @@ inquirer
             message: "Did you do any tests?If so please describe, otherwise leave blank",
         },
         
+        `# ${projectTitle}
+
+
+
+
+        ## table of contents
+        1. [Description](#Description)
+        2. [Installation](#Installation)
+        3. [Usage](#Usage)
+        4. [Credits](#Credits)
+        5. [License](#License)
+        6. [Questions](#Questions)
+        
+        
+        
+        ## Description
+            ${description}
+            ${projectFor}
+            ${problemSolved}
+            ${takeAway}
+        
+        
+        ## Installation
+            ${installation}
+            ${steps}
+        
+        
+        ## Usage
+            ${usage}
+            ${screenshot}
+        
+        ## Credits
+            ${credits}
+            ${thirdPartyAssets}
+        
+        
+        ## License(s)
+            [![License: ${license}](https://img.shields.io/badge/License-${license}-blue.svg)](https://opensource.org/licenses/MIT)
+        
+        
+        ## Questions
+            You can access my github repository from here https://github.com/${gitUser}
+        
+            You may also forward an email for more information or questions to ${email}
+        
+        ## Features
+            ${features}
+        
+        
+        ## Tests 
+            ${tests}`
 
 
 

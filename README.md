@@ -20,10 +20,41 @@
     ${takeAway}
 
 
-    use backtics to input into index.js
+## Installation
+    ${installation}
+    ${steps}
 
 
+## Usage
+    ${usage}
+    ${screenshot}
+
+## Credits
+    ${credits}
+    ${thirdPartyAssets}
 
 
-
+## License(s)
     [![License: ${license}](https://img.shields.io/badge/License-${license}-blue.svg)](https://opensource.org/licenses/MIT)
+
+
+## Questions
+    You can access my github repository from here https://github.com/${gitUser}
+
+    You may also forward an email for more information or questions to ${email}
+
+## Features
+    ${features}
+
+
+## Tests 
+    ${tests}
+
+
+   
+
+
+
+
+
+    
