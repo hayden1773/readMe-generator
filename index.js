@@ -1,4 +1,6 @@
-const inquirer = require('inquirer')
+let inquirer = require('inquirer')
+let fs = require('fs');
+
 
 inquirer
     .prompt ([
@@ -61,7 +63,7 @@ inquirer
             type: "checkbox",
             name: "license",
             message: "Add a license to your readme to let other know what they can and cannot do with your project ",
-            choices: ['APM','AUR','BOWER','COCOAPODS','CONDA','CPAN','CRAN','CRATES','CTAN','DUB','ECLIPSE','GITHUB','HEX','NPM','ORE','PACKAGIST','PYPI','REUSE','WEBLATE'],
+            choices: ['APM','AUR','BOWER','COCOAPODS','CONDA','CPAN','CRAN','CRATES','CTAN','MIT','DUB','ECLIPSE','GITHUB','HEX','NPM','ORE','PACKAGIST','PYPI','REUSE','WEBLATE'],
         },
         {
             type: "input",
@@ -84,62 +86,69 @@ inquirer
             message: "Did you do any tests?If so please describe, otherwise leave blank",
         },
         
-        `# ${projectTitle}
+     ]).then(function({projectTitle,description,projectFor,problemSolved,takeAway,installation,steps,usage,screenshot,credits,thirdPartyAssets,license,gitUser,email,features,tests}) {
+ let generateREADME = 
+ 
+`
+## ${projectTitle}
 
 
+## License(s)
+[![License: ${license}](https://img.shields.io/badge/License-${license}-blue.svg)](https://opensource.org/licenses/MIT)
 
 
-        ## table of contents
-        1. [Description](#Description)
-        2. [Installation](#Installation)
-        3. [Usage](#Usage)
-        4. [Credits](#Credits)
-        5. [License](#License)
-        6. [Questions](#Questions)
+## table of contents
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Credits](#credits)
+5. [License](#license)
+6. [Questions](#questions)
         
         
         
-        ## Description
-            ${description}
-            ${projectFor}
-            ${problemSolved}
-            ${takeAway}
+## Description
+${description}
+
+${projectFor}
+
+${problemSolved}
+
+${takeAway}
         
         
-        ## Installation
-            ${installation}
-            ${steps}
+## Installation
+${installation}
+
+${steps}
         
         
-        ## Usage
-            ${usage}
-            ${screenshot}
+## Usage
+${usage}
+
+${screenshot}
         
-        ## Credits
-            ${credits}
-            ${thirdPartyAssets}
-        
-        
-        ## License(s)
-            [![License: ${license}](https://img.shields.io/badge/License-${license}-blue.svg)](https://opensource.org/licenses/MIT)
+## Credits
+${credits}
+
+${thirdPartyAssets}
         
         
-        ## Questions
-            You can access my github repository from here https://github.com/${gitUser}
+
+## Questions
+You can access my github repository from here https://github.com/${gitUser}
         
-            You may also forward an email for more information or questions to ${email}
+You may also forward an email for more information or questions to ${email}
         
-        ## Features
-            ${features}
+## Features
+${features}
         
         
-        ## Tests 
-            ${tests}`
+## Tests 
+${tests}`
 
 
+            // console.log(generateREADME);
 
-
-
-    ]).then(function(answers){
-        console.log(answers)
-    })
+            fs.writeFileSync(`./output/README.md`,generateREADME);
+     })
